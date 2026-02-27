@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Painel</title>
+
+<link rel="stylesheet" href="config.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+  <h2>Menu</h2>
+  <a href="#" onclick="mostrar('privacidade')">Privacidade</a>
+  <a href="#" onclick="mostrar('seguranca')">Segurança</a>
+  <a href="#" onclick="mostrar('lgpd')">Privacidade e LGPD</a>
+  <a href="" style="color: red; font-size: 18pt;" >Excluir conta</a>
+</div>
+
+<div class="conteudo">
+
+<!-- PRIVACIDADE -->
+<div id="privacidade" class="secao">
+  <div class="barra">Configurações de Privacidade</div>
+
+  <div class="box">
+    Nome
+    <input type="text">
+
+    Email
+    <input type="email">
+
+    Telefone
+    <input type="text">
+
+    CPF
+    <input type="text">
+
+    CNPJ
+    <input type="text">
+
+    Data de Nascimento
+    <input type="date">
+
+    Foto
+    <input type="file">
+
+    <button>Salvar</button>
+  </div>
+</div>
+
+<!-- SEGURANCA -->
+<div id="seguranca" class="secao">
+  <div class="barra">Configurações de Segurança</div>
+
+  <div class="box">
+    Senha Atual
+    <input type="password">
+
+    Nova Senha
+    <input type="password">
+
+    Confirmar Senha
+    <input type="password">
+
+    <button>Alterar Senha</button>
+  </div>
+
+  <div class="box">
+    <button>Ativar 2FA</button><br><br>
+    <button>Ver Dispositivos</button><br><br>
+    <button>Encerrar Sessões</button>
+  </div>
+</div>
+
+<!-- LGPD -->
+<div id="lgpd" class="secao">
+  <div class="barra">Privacidade e LGPD</div>
+
+  <div class="box">
+    <button>Baixar Meus Dados</button><br><br>
+    <button>Gerenciar Consentimento</button><br><br>
+    <button>Ver Termos</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- RODAPÉ COM EXCLUIR CONTA -->
+<div class="rodape">
+  <p>Excluir Conta Permanentemente</p>
+  <button>Excluir Conta</button>
+</div>
+
+<script>
+function mostrar(id){
+  var secoes = document.getElementsByClassName("secao");
+  for(var i = 0; i < secoes.length; i++){
+    secoes[i].classList.remove("ativa");
+  }
+  document.getElementById(id).classList.add("ativa");
+}
+
+mostrar("privacidade");
+</script>
+
+</body>
+</html>

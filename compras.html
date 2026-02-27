@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compras.css">
+    <title>Carrinho de Compras</title>
+</head>
+
+<body>
+    <header>
+        <a href="TelaInicial.html">
+            <div class="logo">VITRINE<span>FY</span></div>
+        </a>
+        <h2>Meu Carrinho</h2>
+        <div class="search-bar">
+            <button class="search-icon" type="button" title="Pesquisar">🔍</button>
+            <input type="text" id="searchInput" placeholder="Pesquisar no carrinho...">
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="cart-item">
+            <div class="item-left">
+                <input type="checkbox" class="item-check" checked>
+                <img src="Gabinete.png" alt="Produto">
+                <div class="item-info">
+                    <h3>Gabinete Gamer Liketec Dasha</h3>
+                    <p>Variação: Cor Preto</p>
+                </div>
+            </div>
+            <div class="item-price">R$ 349,90</div>
+            <div class="item-quantity">
+                <input type="number" value="1" min="1">
+            </div>
+            <div class="item-total">R$ 349,90</div>
+            <button class="delete-btn" title="Remover item">🗑️</button>
+        </div>
+
+        <div class="cart-item">
+            <div class="item-left">
+                <input type="checkbox" class="item-check" checked>
+                <img src="monitor_pctop_led_preto-1--isoqjw0i9u.webp" alt="Produto">
+                <div class="item-info">
+                    <h3>Monitor Pctop 19,5" Led Slim Vga c/Hdmi</h3>
+                    <p>Variação: Cor Preto</p>
+                </div>
+            </div>
+            <div class="item-price">R$ 299,90</div>
+            <div class="item-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="item-total">R$ 299,90</div>
+            <button class="delete-btn" title="Remover item">🗑️</button>
+        </div>
+
+        <div class="cart-item">
+            <div class="item-left">
+                <input type="checkbox" class="item-check" checked>
+                <img src="RUBY-Q670EA-2.webp" alt="Produto">
+                <div class="item-info">
+                    <h3>Placa Mãe Industrial ATX, Processador Intel</h3>
+                    <p>Variação: Intel até 14ª geração</p>
+                </div>
+            </div>
+            <div class="item-price">R$ 450,90</div>
+            <div class="item-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="item-total">R$ 450,90</div>
+            <button class="delete-btn" title="Remover item">🗑️</button>
+        </div>
+
+        <div class="cart-item">
+            <div class="item-left">
+                <input type="checkbox" class="item-check" checked>
+                <img src="s69d1445f24cd410d9e624d7d39844164w-6cc0b659feb54b39e816743216867803-1024-1024.webp"
+                    alt="Produto">
+                <div class="item-info">
+                    <h3>Promoção SSD M.2</h3>
+                    <p>Variação: 125GB até 1TB</p>
+                </div>
+            </div>
+            <div class="item-price">R$ 349,90</div>
+            <div class="item-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="item-total">R$ 349,90</div>
+            <button class="delete-btn" title="Remover item">🗑️</button>
+        </div>
+
+        <div class="cart-item">
+            <div class="item-left">
+                <input type="checkbox" class="item-check" checked>
+                <img src="fone.jfif.jpeg" alt="Produto">
+                <div class="item-info">
+                    <h3>Fone de oubido HEADERSET GAMER EVOLUT</h3>
+                    <p>Variação: Cor Preto/Verde</p>
+                </div>
+            </div>
+            <div class="item-price">R$ 450,90</div>
+            <div class="item-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="item-total">R$ 450,90</div>
+            <button class="delete-btn" title="Remover item">🗑️</button>
+        </div>
+
+
+        <div class="summary">
+            <div class="total">Total: R$ 00,00</div>
+            <button class="checkout-btn"><a href="https://wa.me/5521965407372">Finalizar Compra</a></button>
+        </div>
+
+
+
+    </div>
+
+    <footer>
+        © 2026 - Sistema de Loja Virtual
+    </footer>
+
+    <script>
+        // Função para remover item do carrinho
+        function atualizarTotal() {
+            let total = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const checkbox = item.querySelector('.item-check');
+                if (checkbox && checkbox.checked) {
+                    const totalTexto = item.querySelector('.item-total').innerText
+                        .replace('R$', '')
+                        .replace('.', '')
+                        .replace(',', '.');
+                    total += parseFloat(totalTexto);
+                }
+            });
+
+            document.querySelector('.total').innerText =
+                'Total: R$ ' + total.toFixed(2).replace('.', ',');
+        }
+
+        // Evento de excluir item
+        document.querySelectorAll('.delete-btn').forEach(botao => {
+            botao.addEventListener('click', function () {
+                this.closest('.cart-item').remove();
+                atualizarTotal();
+            });
+        });
+
+        // Atualizar total ao marcar/desmarcar checkbox
+        document.querySelectorAll('.item-check').forEach(check => {
+            check.addEventListener('change', atualizarTotal);
+        });
+
+        // Função de pesquisa
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            const termo = this.value.toLowerCase();
+
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const nomeProduto = item.querySelector('h3').innerText.toLowerCase();
+
+                if (nomeProduto.includes(termo)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

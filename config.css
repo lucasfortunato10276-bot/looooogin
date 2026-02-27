@@ -1,0 +1,98 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+}
+
+/* MENU */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: orange;
+  padding: 15px;
+  color: white;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* CONTEUDO */
+.conteudo {
+  width: 100%;
+  padding: 20px;
+}
+
+/* TITULO LARANJA */
+.barra {
+  background: orange;
+  color: white;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+/* CAIXAS */
+.box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+input, textarea {
+  width: 300px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* BOTAO */
+button {
+  padding: 5px 10px;
+  background: orange;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* PERIGO */
+.perigo {
+  background: red;
+}
+
+/* RODAPE */
+.rodape {
+  margin-top: 40px;
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.rodape button {
+  background: red;
+}
+
+/* ESCONDER SECOES */
+.secao {
+  display: none;
+}
+
+.ativa {
+  display: block;
+}
+
